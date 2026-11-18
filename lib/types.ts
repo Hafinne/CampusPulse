@@ -18,6 +18,23 @@ export interface CheckInEntry {
   reflection?: string;
 }
 
+export type RequestStatus = 'Pending Review' | 'Scheduled' | 'Completed';
+
+export interface CounselorRequest {
+  id: string;
+  pseudonym: string;
+  topic: string;
+  preference: string;
+  timeAgo: string;
+  createdAt: string;
+  moodLevel: MoodLevel;
+  moodEmoji: string;
+  status: RequestStatus;
+  studentNote: string;
+  scheduledSlot?: string;
+  isLiveUserRequest?: boolean;
+}
+
 export interface MoodConfig {
   level: MoodLevel;
   label: string;
