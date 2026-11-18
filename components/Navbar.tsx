@@ -17,6 +17,7 @@ export default function Navbar() {
   ];
 
   const isActive = (path: string) => {
+    if (!pathname) return false;
     return pathname === path || (path !== '/' && pathname.startsWith(path));
   };
 
