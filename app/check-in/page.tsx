@@ -45,8 +45,11 @@ function CheckInForm() {
     if (initialMoodParam) {
       const parsed = parseInt(initialMoodParam, 10);
       if (parsed >= 1 && parsed <= 5) {
-        setSelectedMood(parsed as MoodLevel);
-        setCurrentStep(2); // Jump straight to step 2 for ultra-fast check-in!
+        const timer = setTimeout(() => {
+          setSelectedMood(parsed as MoodLevel);
+          setCurrentStep(2); // Jump straight to step 2 for ultra-fast check-in!
+        }, 0);
+        return () => clearTimeout(timer);
       }
     }
   }, [initialMoodParam]);
